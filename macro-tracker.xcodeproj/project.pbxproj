@@ -9,25 +9,23 @@
 /* Begin PBXBuildFile section */
 		85816EFA2415DB67004E2AE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816EF92415DB67004E2AE3 /* AppDelegate.swift */; };
 		85816EFC2415DB67004E2AE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816EFB2415DB67004E2AE3 /* SceneDelegate.swift */; };
-		85816EFE2415DB67004E2AE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816EFD2415DB67004E2AE3 /* ViewController.swift */; };
-		85816F012415DB67004E2AE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85816EFF2415DB67004E2AE3 /* Main.storyboard */; };
 		85816F042415DB67004E2AE3 /* macro_tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85816F022415DB67004E2AE3 /* macro_tracker.xcdatamodeld */; };
 		85816F062415DB69004E2AE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85816F052415DB69004E2AE3 /* Assets.xcassets */; };
-		85816F092415DB69004E2AE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85816F072415DB69004E2AE3 /* LaunchScreen.storyboard */; };
 		85816F122415DBE9004E2AE3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F112415DBE9004E2AE3 /* Coordinator.swift */; };
+		85816F152415DC42004E2AE3 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F142415DC42004E2AE3 /* ApplicationCoordinator.swift */; };
+		85816F192415E229004E2AE3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F182415E229004E2AE3 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		85816EF62415DB67004E2AE3 /* macro-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "macro-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85816EF92415DB67004E2AE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85816EFB2415DB67004E2AE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		85816EFD2415DB67004E2AE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		85816F002415DB67004E2AE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85816F032415DB67004E2AE3 /* macro_tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = macro_tracker.xcdatamodel; sourceTree = "<group>"; };
 		85816F052415DB69004E2AE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		85816F082415DB69004E2AE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85816F0A2415DB69004E2AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85816F112415DBE9004E2AE3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		85816F142415DC42004E2AE3 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		85816F182415E229004E2AE3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,10 +61,9 @@
 				85816EF92415DB67004E2AE3 /* AppDelegate.swift */,
 				85816EFB2415DB67004E2AE3 /* SceneDelegate.swift */,
 				85816F102415DBBE004E2AE3 /* Protocols */,
-				85816EFD2415DB67004E2AE3 /* ViewController.swift */,
-				85816EFF2415DB67004E2AE3 /* Main.storyboard */,
+				85816F142415DC42004E2AE3 /* ApplicationCoordinator.swift */,
+				85816F182415E229004E2AE3 /* MainViewController.swift */,
 				85816F052415DB69004E2AE3 /* Assets.xcassets */,
-				85816F072415DB69004E2AE3 /* LaunchScreen.storyboard */,
 				85816F0A2415DB69004E2AE3 /* Info.plist */,
 				85816F022415DB67004E2AE3 /* macro_tracker.xcdatamodeld */,
 			);
@@ -139,9 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85816F092415DB69004E2AE3 /* LaunchScreen.storyboard in Resources */,
 				85816F062415DB69004E2AE3 /* Assets.xcassets in Resources */,
-				85816F012415DB67004E2AE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,34 +147,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85816EFE2415DB67004E2AE3 /* ViewController.swift in Sources */,
 				85816EFA2415DB67004E2AE3 /* AppDelegate.swift in Sources */,
 				85816F122415DBE9004E2AE3 /* Coordinator.swift in Sources */,
 				85816EFC2415DB67004E2AE3 /* SceneDelegate.swift in Sources */,
+				85816F192415E229004E2AE3 /* MainViewController.swift in Sources */,
 				85816F042415DB67004E2AE3 /* macro_tracker.xcdatamodeld in Sources */,
+				85816F152415DC42004E2AE3 /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		85816EFF2415DB67004E2AE3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				85816F002415DB67004E2AE3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		85816F072415DB69004E2AE3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				85816F082415DB69004E2AE3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		85816F0B2415DB69004E2AE3 /* Debug */ = {
