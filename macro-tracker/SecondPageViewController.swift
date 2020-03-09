@@ -20,4 +20,5 @@ class SecondPageViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue 
     }
+
 }

@@ -11,11 +11,14 @@ import UIKit
 
 class ApplicationCoordinator: Coordinator {
     
+    var childCoordinators: [Coordinator] = []
+    
     private let navigationController: UINavigationController
     
     //Welcome Flow
     private var firstPageViewController: FirstPageViewController?
     private var secondPageViewController: SecondPageViewController?
+    private var thirdPageViewController: ThirdPageViewController?
     
     // Main Flow
     private var mainViewController: MainViewController?
@@ -27,7 +30,9 @@ class ApplicationCoordinator: Coordinator {
     }
     
     func start() {
-        showWelcome()
+        // TODO: Add core data logic so welcome flow only occurs on first app use
+        showMain()
+        if true { showWelcome() }
     }
     
     func showMain() {
@@ -38,28 +43,22 @@ class ApplicationCoordinator: Coordinator {
     }
     
     func showWelcome() {
-        let firstPageViewController = FirstPageViewController()
-        firstPageViewController.delegate = self
-        self.firstPageViewController = firstPageViewController
-        
-        let secondPageViewController = SecondPageViewController()
-        secondPageViewController.delegate = self
-        self.secondPageViewController = secondPageViewController
-        
-        // TODO create page view controller
-        let pageViewController = PageViewController(pages: [firstPageViewController, secondPageViewController])
-        navigationController.pushViewController(pageViewController, animated: false)
+        let welcomeCoordinator = WelcomeCoordinator(navigationController)
+        welcomeCoordinator.delegate = self
+        childCoordinators.append(welcomeCoordinator)
+        welcomeCoordinator.start()
+    }
+    
+}
+
+extension ApplicationCoordinator: BackToMainViewControllerDelegate {
+    func navigateToMainFlow() {
+        navigationController.popViewController(animated: false)
+        childCoordinators.removeLast()
+        showMain()
     }
 }
 
 extension ApplicationCoordinator: MainViewControllerDelegate {
-    
-}
-
-extension ApplicationCoordinator: FirstPageViewControllerDelegate {
-    
-}
-
-extension ApplicationCoordinator: SecondPageViewControllerDelegate {
     
 }

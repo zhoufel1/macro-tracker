@@ -10,7 +10,9 @@ import UIKit
 
 class PageViewController: UIPageViewController {
     
-    var pages = [UIViewController]()
+    private var pages = [UIViewController]()
+    private let pageControl = UIPageControl()
+    
     
     init(pages: [UIViewController]) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -26,8 +28,11 @@ class PageViewController: UIPageViewController {
         self.delegate = self
         self.dataSource = self
         
+        view.backgroundColor = .white
+    
         setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
     }
+    
 }
 
 extension PageViewController: UIPageViewControllerDataSource {

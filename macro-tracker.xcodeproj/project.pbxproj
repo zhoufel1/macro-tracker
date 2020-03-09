@@ -18,6 +18,8 @@
 		85816F1D2415EDCF004E2AE3 /* FirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F1C2415EDCF004E2AE3 /* FirstPageViewController.swift */; };
 		85816F1F2415F2A6004E2AE3 /* SecondPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F1E2415F2A6004E2AE3 /* SecondPageViewController.swift */; };
 		85816F222415F3A5004E2AE3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F212415F3A5004E2AE3 /* PageViewController.swift */; };
+		85816F25241605D4004E2AE3 /* ThirdPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F24241605D4004E2AE3 /* ThirdPageViewController.swift */; };
+		85816F2824162F1C004E2AE3 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F2724162F1C004E2AE3 /* WelcomeCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		85816F1C2415EDCF004E2AE3 /* FirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageViewController.swift; sourceTree = "<group>"; };
 		85816F1E2415F2A6004E2AE3 /* SecondPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageViewController.swift; sourceTree = "<group>"; };
 		85816F212415F3A5004E2AE3 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		85816F24241605D4004E2AE3 /* ThirdPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPageViewController.swift; sourceTree = "<group>"; };
+		85816F2724162F1C004E2AE3 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +73,13 @@
 				85816EF92415DB67004E2AE3 /* AppDelegate.swift */,
 				85816EFB2415DB67004E2AE3 /* SceneDelegate.swift */,
 				85816F102415DBBE004E2AE3 /* Protocols */,
-				85816F142415DC42004E2AE3 /* ApplicationCoordinator.swift */,
+				85816F2624162E8B004E2AE3 /* Coordinators */,
 				85816F182415E229004E2AE3 /* MainViewController.swift */,
 				85816F1C2415EDCF004E2AE3 /* FirstPageViewController.swift */,
 				85816F1E2415F2A6004E2AE3 /* SecondPageViewController.swift */,
+				85816F24241605D4004E2AE3 /* ThirdPageViewController.swift */,
 				85816F202415F397004E2AE3 /* Views */,
+				85816F232416055A004E2AE3 /* Constants */,
 				85816F052415DB69004E2AE3 /* Assets.xcassets */,
 				85816F1A2415E478004E2AE3 /* Launch Screen.storyboard */,
 				85816F0A2415DB69004E2AE3 /* Info.plist */,
@@ -96,6 +102,22 @@
 				85816F212415F3A5004E2AE3 /* PageViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		85816F232416055A004E2AE3 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		85816F2624162E8B004E2AE3 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				85816F142415DC42004E2AE3 /* ApplicationCoordinator.swift */,
+				85816F2724162F1C004E2AE3 /* WelcomeCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,10 +195,12 @@
 				85816F122415DBE9004E2AE3 /* Coordinator.swift in Sources */,
 				85816EFC2415DB67004E2AE3 /* SceneDelegate.swift in Sources */,
 				85816F192415E229004E2AE3 /* MainViewController.swift in Sources */,
+				85816F2824162F1C004E2AE3 /* WelcomeCoordinator.swift in Sources */,
 				85816F1D2415EDCF004E2AE3 /* FirstPageViewController.swift in Sources */,
 				85816F222415F3A5004E2AE3 /* PageViewController.swift in Sources */,
 				85816F042415DB67004E2AE3 /* macro_tracker.xcdatamodeld in Sources */,
 				85816F152415DC42004E2AE3 /* ApplicationCoordinator.swift in Sources */,
+				85816F25241605D4004E2AE3 /* ThirdPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
