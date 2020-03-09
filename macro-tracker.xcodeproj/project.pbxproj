@@ -14,6 +14,10 @@
 		85816F122415DBE9004E2AE3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F112415DBE9004E2AE3 /* Coordinator.swift */; };
 		85816F152415DC42004E2AE3 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F142415DC42004E2AE3 /* ApplicationCoordinator.swift */; };
 		85816F192415E229004E2AE3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F182415E229004E2AE3 /* MainViewController.swift */; };
+		85816F1B2415E478004E2AE3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85816F1A2415E478004E2AE3 /* Launch Screen.storyboard */; };
+		85816F1D2415EDCF004E2AE3 /* FirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F1C2415EDCF004E2AE3 /* FirstPageViewController.swift */; };
+		85816F1F2415F2A6004E2AE3 /* SecondPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F1E2415F2A6004E2AE3 /* SecondPageViewController.swift */; };
+		85816F222415F3A5004E2AE3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816F212415F3A5004E2AE3 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		85816F112415DBE9004E2AE3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		85816F142415DC42004E2AE3 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		85816F182415E229004E2AE3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		85816F1A2415E478004E2AE3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		85816F1C2415EDCF004E2AE3 /* FirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageViewController.swift; sourceTree = "<group>"; };
+		85816F1E2415F2A6004E2AE3 /* SecondPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageViewController.swift; sourceTree = "<group>"; };
+		85816F212415F3A5004E2AE3 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +71,11 @@
 				85816F102415DBBE004E2AE3 /* Protocols */,
 				85816F142415DC42004E2AE3 /* ApplicationCoordinator.swift */,
 				85816F182415E229004E2AE3 /* MainViewController.swift */,
+				85816F1C2415EDCF004E2AE3 /* FirstPageViewController.swift */,
+				85816F1E2415F2A6004E2AE3 /* SecondPageViewController.swift */,
+				85816F202415F397004E2AE3 /* Views */,
 				85816F052415DB69004E2AE3 /* Assets.xcassets */,
+				85816F1A2415E478004E2AE3 /* Launch Screen.storyboard */,
 				85816F0A2415DB69004E2AE3 /* Info.plist */,
 				85816F022415DB67004E2AE3 /* macro_tracker.xcdatamodeld */,
 			);
@@ -76,6 +88,14 @@
 				85816F112415DBE9004E2AE3 /* Coordinator.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		85816F202415F397004E2AE3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85816F212415F3A5004E2AE3 /* PageViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85816F1B2415E478004E2AE3 /* Launch Screen.storyboard in Resources */,
 				85816F062415DB69004E2AE3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,9 +169,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				85816EFA2415DB67004E2AE3 /* AppDelegate.swift in Sources */,
+				85816F1F2415F2A6004E2AE3 /* SecondPageViewController.swift in Sources */,
 				85816F122415DBE9004E2AE3 /* Coordinator.swift in Sources */,
 				85816EFC2415DB67004E2AE3 /* SceneDelegate.swift in Sources */,
 				85816F192415E229004E2AE3 /* MainViewController.swift in Sources */,
+				85816F1D2415EDCF004E2AE3 /* FirstPageViewController.swift in Sources */,
+				85816F222415F3A5004E2AE3 /* PageViewController.swift in Sources */,
 				85816F042415DB67004E2AE3 /* macro_tracker.xcdatamodeld in Sources */,
 				85816F152415DC42004E2AE3 /* ApplicationCoordinator.swift in Sources */,
 			);

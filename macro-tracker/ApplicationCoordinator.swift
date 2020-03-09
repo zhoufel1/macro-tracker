@@ -13,6 +13,10 @@ class ApplicationCoordinator: Coordinator {
     
     private let navigationController: UINavigationController
     
+    //Welcome Flow
+    private var firstPageViewController: FirstPageViewController?
+    private var secondPageViewController: SecondPageViewController?
+    
     // Main Flow
     private var mainViewController: MainViewController?
     
@@ -23,16 +27,39 @@ class ApplicationCoordinator: Coordinator {
     }
     
     func start() {
-        showMain()
+        showWelcome()
     }
     
     func showMain() {
         let mainViewController = MainViewController()
         mainViewController.delegate = self
+        self.mainViewController = mainViewController
         navigationController.pushViewController(mainViewController, animated: false)
+    }
+    
+    func showWelcome() {
+        let firstPageViewController = FirstPageViewController()
+        firstPageViewController.delegate = self
+        self.firstPageViewController = firstPageViewController
+        
+        let secondPageViewController = SecondPageViewController()
+        secondPageViewController.delegate = self
+        self.secondPageViewController = secondPageViewController
+        
+        // TODO create page view controller
+        let pageViewController = PageViewController(pages: [firstPageViewController, secondPageViewController])
+        navigationController.pushViewController(pageViewController, animated: false)
     }
 }
 
 extension ApplicationCoordinator: MainViewControllerDelegate {
+    
+}
+
+extension ApplicationCoordinator: FirstPageViewControllerDelegate {
+    
+}
+
+extension ApplicationCoordinator: SecondPageViewControllerDelegate {
     
 }
