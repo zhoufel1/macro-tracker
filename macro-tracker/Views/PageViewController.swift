@@ -10,9 +10,7 @@ import UIKit
 
 class PageViewController: UIPageViewController {
     
-    private var pages = [UIViewController]()
-    private let pageControl = UIPageControl()
-    
+    internal var pages = [UIViewController]()
     
     init(pages: [UIViewController]) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)

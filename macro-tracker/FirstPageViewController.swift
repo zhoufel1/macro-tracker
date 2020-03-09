@@ -9,6 +9,7 @@
 import UIKit
 
 protocol FirstPageViewControllerDelegate: AnyObject {
+    func goToSecondPage()
 }
 
 class FirstPageViewController: UIViewController {
@@ -29,8 +30,8 @@ class FirstPageViewController: UIViewController {
         nextButton.setTitle("NEXT", for: .normal)
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        nextButton.addTarget(self, action: #selector(nextPageActionHandler), for: .touchUpInside)
         nextButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.addTarget(self, action: #selector(test), for: .touchUpInside)
         view.addSubview(nextButton)
     }
     
@@ -39,6 +40,10 @@ class FirstPageViewController: UIViewController {
             nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50)
         ])
+    }
+    
+    @objc func nextPageActionHandler() {
+        delegate?.goToSecondPage()
     }
 
 }

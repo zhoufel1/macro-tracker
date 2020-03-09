@@ -15,11 +15,6 @@ class ApplicationCoordinator: Coordinator {
     
     private let navigationController: UINavigationController
     
-    //Welcome Flow
-    private var firstPageViewController: FirstPageViewController?
-    private var secondPageViewController: SecondPageViewController?
-    private var thirdPageViewController: ThirdPageViewController?
-    
     // Main Flow
     private var mainViewController: MainViewController?
     
@@ -30,9 +25,11 @@ class ApplicationCoordinator: Coordinator {
     }
     
     func start() {
-        // TODO: Add core data logic so welcome flow only occurs on first app use
+        let alreadyLaunched = UserDefaults.standard.bool(forKey: "alreadyLaunched")
         showMain()
-        if true { showWelcome() }
+        if !alreadyLaunched {
+            showWelcome()
+        }
     }
     
     func showMain() {
@@ -42,6 +39,7 @@ class ApplicationCoordinator: Coordinator {
         navigationController.pushViewController(mainViewController, animated: false)
     }
     
+    // Welcome Flow
     func showWelcome() {
         let welcomeCoordinator = WelcomeCoordinator(navigationController)
         welcomeCoordinator.delegate = self
@@ -55,7 +53,6 @@ extension ApplicationCoordinator: BackToMainViewControllerDelegate {
     func navigateToMainFlow() {
         navigationController.popViewController(animated: false)
         childCoordinators.removeLast()
-        showMain()
     }
 }
 

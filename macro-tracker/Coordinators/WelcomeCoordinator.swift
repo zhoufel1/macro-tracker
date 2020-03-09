@@ -23,6 +23,8 @@ class WelcomeCoordinator: Coordinator {
     private var firstPageViewController: FirstPageViewController?
     private var secondPageViewController: SecondPageViewController?
     private var thirdPageViewController: ThirdPageViewController?
+    private var fourthPageViewController: FourthPageViewController?
+    private var pageViewController: PageViewController?
     
     init(_ navigationController: UINavigationController) {
         navigationController.setNavigationBarHidden(true, animated: false)
@@ -42,15 +44,25 @@ class WelcomeCoordinator: Coordinator {
         thirdPageViewController.delegate = self
         self.thirdPageViewController = thirdPageViewController
         
-        let pageViewController = PageViewController(pages: [firstPageViewController, secondPageViewController, thirdPageViewController])
+        let fourthPageViewController = FourthPageViewController()
+        fourthPageViewController.delegate = self
+        self.fourthPageViewController = fourthPageViewController
+        
+        let pageViewController = PageViewController(pages: [firstPageViewController,
+                                                            secondPageViewController,
+                                                            thirdPageViewController,
+                                                            fourthPageViewController])
+        self.pageViewController = pageViewController
         navigationController.pushViewController(pageViewController, animated: false)
     }
     
 }
 
 extension WelcomeCoordinator: FirstPageViewControllerDelegate {
-    func goToMain() {
-        delegate?.navigateToMainFlow()
+    func goToSecondPage() {
+        if let secondPage = pageViewController?.pages[1] {
+            pageViewController?.setViewControllers([secondPage], direction: .forward, animated: true, completion: nil)
+        }
     }
 }
 
@@ -60,4 +72,11 @@ extension WelcomeCoordinator: SecondPageViewControllerDelegate {
 
 extension WelcomeCoordinator: ThirdPageViewControllerDelegate {
     
+}
+
+extension WelcomeCoordinator: FourthPageViewControllerDelegate {
+    func userPressedGetStarted() {
+        UserDefaults.standard.set(true, forKey: "alreadyLaunched")
+        delegate?.navigateToMainFlow()
+    }
 }

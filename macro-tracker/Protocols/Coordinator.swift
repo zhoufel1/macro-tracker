@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum EmptyChildrenError: Error {
+    case noChildren
+}
+
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get set }
     func start()
