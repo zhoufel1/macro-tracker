@@ -15,10 +15,6 @@ class ApplicationCoordinator: Coordinator {
     
     private let navigationController: UINavigationController
     
-    // Main Flow
-    private var mainViewController: MainViewController?
-    
-    
     init(_ navigationController: UINavigationController) {
         navigationController.setNavigationBarHidden(true, animated: false)
         self.navigationController = navigationController
@@ -33,13 +29,11 @@ class ApplicationCoordinator: Coordinator {
     }
     
     func showMain() {
-        let mainViewController = MainViewController()
-        mainViewController.delegate = self
-        self.mainViewController = mainViewController
-        navigationController.pushViewController(mainViewController, animated: false)
+        let mainCoordinator = MainCoordinator(navigationController)
+        childCoordinators.append(mainCoordinator)
+        mainCoordinator.start()
     }
     
-    // Welcome Flow
     func showWelcome() {
         let welcomeCoordinator = WelcomeCoordinator(navigationController)
         welcomeCoordinator.delegate = self
@@ -54,8 +48,4 @@ extension ApplicationCoordinator: BackToMainViewControllerDelegate {
         navigationController.popViewController(animated: false)
         childCoordinators.removeLast()
     }
-}
-
-extension ApplicationCoordinator: MainViewControllerDelegate {
-    
 }

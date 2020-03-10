@@ -66,13 +66,9 @@ extension WelcomeCoordinator: FirstPageViewControllerDelegate {
     }
 }
 
-extension WelcomeCoordinator: SecondPageViewControllerDelegate {
-    
-}
+extension WelcomeCoordinator: SecondPageViewControllerDelegate {}
 
-extension WelcomeCoordinator: ThirdPageViewControllerDelegate {
-    
-}
+extension WelcomeCoordinator: ThirdPageViewControllerDelegate {}
 
 extension WelcomeCoordinator: FourthPageViewControllerDelegate {
     func userPressedGetStarted() {

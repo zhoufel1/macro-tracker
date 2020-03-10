@@ -12,6 +12,10 @@ class PageViewController: UIPageViewController {
     
     internal var pages = [UIViewController]()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
     init(pages: [UIViewController]) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pages = pages
