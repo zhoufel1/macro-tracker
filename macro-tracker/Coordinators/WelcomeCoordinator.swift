@@ -24,7 +24,7 @@ class WelcomeCoordinator: Coordinator {
     private var secondPageViewController: SecondPageViewController?
     private var thirdPageViewController: ThirdPageViewController?
     private var fourthPageViewController: FourthPageViewController?
-    private var pageViewController: PageViewController?
+    private var pageViewController: MTPageViewController?
     
     init(_ navigationController: UINavigationController) {
         navigationController.setNavigationBarHidden(true, animated: false)
@@ -48,7 +48,7 @@ class WelcomeCoordinator: Coordinator {
         fourthPageViewController.delegate = self
         self.fourthPageViewController = fourthPageViewController
         
-        let pageViewController = PageViewController(pages: [firstPageViewController,
+        let pageViewController = MTPageViewController(pages: [firstPageViewController,
                                                             secondPageViewController,
                                                             thirdPageViewController,
                                                             fourthPageViewController])

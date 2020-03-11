@@ -1,5 +1,5 @@
 //
-//  MacroInputViewController.swift
+//  MacroDataViewController.swift
 //  macro-tracker
 //
 //  Created by Felix on 2020-03-10.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-protocol MacroInputViewControllerDelegate: AnyObject {}
+protocol MacroDataViewControllerDelegate: AnyObject {}
 
-class MacroInputViewController: UIViewController {
+class MacroDataViewController: UIViewController {
     
-    weak var delegate: MacroInputViewControllerDelegate?
+    weak var delegate: MacroDataViewControllerDelegate?
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Macros"
-        let image = UIImage(named: "add-circle")
-        let selectedImage = UIImage(named: "add-circle")
+        title = "Data"
+        let image = UIImage(named: "bar-chart")
+        let selectedImage = UIImage(named: "bar-chart")
         tabBarItem = UITabBarItem(title: "", image: image, selectedImage: selectedImage)
     }
     
@@ -28,13 +28,10 @@ class MacroInputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
     }
     
-    func setupView() {
-    }
+    func setupView() {}
     
-    func setupConstraints() {
-    }
+    func setupConstraints() {}
     
 }

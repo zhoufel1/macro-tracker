@@ -1,5 +1,5 @@
 //
-//  PageViewController.swift
+//  MTPageViewController.swift
 //  macro-tracker
 //
 //  Created by Felix on 2020-03-08.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController {
+class MTPageViewController: UIPageViewController {
     
     internal var pages = [UIViewController]()
     
@@ -37,7 +37,7 @@ class PageViewController: UIPageViewController {
     
 }
 
-extension PageViewController: UIPageViewControllerDataSource {
+extension MTPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = pages.firstIndex(of: viewController) {
             if viewControllerIndex == 0 { return nil }
@@ -57,4 +57,4 @@ extension PageViewController: UIPageViewControllerDataSource {
     
 }
 
-extension PageViewController: UIPageViewControllerDelegate { }
+extension MTPageViewController: UIPageViewControllerDelegate { }

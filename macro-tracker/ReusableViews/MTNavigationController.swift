@@ -1,5 +1,5 @@
 //
-//  NavigationController.swift
+//  MTNavigationController.swift
 //  macro-tracker
 //
 //  Created by Felix on 2020-03-10.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationController: UINavigationController {
+class MTNavigationController: UINavigationController {
     override func viewDidLoad() {
         navigationBar.isTranslucent = false
         view.backgroundColor = .white
