@@ -57,4 +57,4 @@ extension MTPageViewController: UIPageViewControllerDataSource {
     
 }
 
-extension MTPageViewController: UIPageViewControllerDelegate { }
+extension MTPageViewController: UIPageViewControllerDelegate {}

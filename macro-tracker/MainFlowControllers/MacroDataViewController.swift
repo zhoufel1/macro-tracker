@@ -17,9 +17,9 @@ class MacroDataViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         title = "Data"
-        let image = UIImage(named: "bar-chart")
-        let selectedImage = UIImage(named: "bar-chart")
-        tabBarItem = UITabBarItem(title: "", image: image, selectedImage: selectedImage)
+        let image = UIImage(named: "chart.bar")
+        let selectedImage = UIImage(named: "chart.bar")
+        tabBarItem = UITabBarItem(title: "Data", image: image, selectedImage: selectedImage)
     }
     
     required init?(coder: NSCoder) {

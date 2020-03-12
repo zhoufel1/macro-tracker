@@ -9,6 +9,7 @@
 import UIKit
 
 class MTTabBarViewController: UITabBarController {
+    
     init(viewControllers: [UIViewController]) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllers = viewControllers
@@ -20,6 +21,7 @@ class MTTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.barTintColor = UIColor.init(red: 213.0/255, green: 223.0/255, blue: 227.0/255, alpha: 1.0)
+        tabBar.barTintColor = UIColor.init(red: 255/255, green: 201/255, blue: 201/255, alpha: 1)
+        tabBar.tintColor = .red
     }
 }

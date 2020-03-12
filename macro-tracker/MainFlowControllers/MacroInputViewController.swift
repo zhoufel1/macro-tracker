@@ -17,9 +17,9 @@ class MacroInputViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         title = "Macros"
-        let image = UIImage(named: "add-circle")
-        let selectedImage = UIImage(named: "add-circle")
-        tabBarItem = UITabBarItem(title: "", image: image, selectedImage: selectedImage)
+        let image = UIImage(named: "plus.square")
+        let selectedImage = UIImage(named: "plus.square")
+        tabBarItem = UITabBarItem(title: "Add", image: image, selectedImage: selectedImage)
     }
     
     required init?(coder: NSCoder) {
@@ -29,12 +29,15 @@ class MacroInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupConstraints()
     }
     
     func setupView() {
     }
     
     func setupConstraints() {
+        NSLayoutConstraint.activate([
+        ])
     }
     
 }

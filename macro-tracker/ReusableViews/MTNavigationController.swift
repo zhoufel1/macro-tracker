@@ -9,9 +9,17 @@
 import UIKit
 
 class MTNavigationController: UINavigationController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
     override func viewDidLoad() {
         navigationBar.isTranslucent = false
-        view.backgroundColor = .white
-        navigationBar.barTintColor = .red
+        view.backgroundColor = Constants.mainBackgroundColor
+        navigationBar.barTintColor = Constants.mainBackgroundColor
+        navigationBar.prefersLargeTitles = true
+        navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        
     }
 }

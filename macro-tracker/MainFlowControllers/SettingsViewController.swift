@@ -17,9 +17,9 @@ class SettingsViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         title = "Settings"
-        let image = UIImage(named: "settings")
-        let selectedImage = UIImage(named: "settings")
-        tabBarItem = UITabBarItem(title: "", image: image, selectedImage: selectedImage)
+        let image = UIImage(named: "gear")
+        let selectedImage = UIImage(named: "gear")
+        tabBarItem = UITabBarItem(title: "Settings", image: image, selectedImage: selectedImage)
     }
     
     required init?(coder: NSCoder) {

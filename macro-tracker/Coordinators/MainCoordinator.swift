@@ -53,7 +53,6 @@ class MainCoordinator: Coordinator {
         let settingsHolder = MTNavigationController(rootViewController: settingsViewController)
         self.settingsNavigationController = settingsHolder
         
-        
         let controllers = [profileHolder, macroInputHolder, macroDataHolder, settingsHolder]
         let tabBarController = MTTabBarViewController(viewControllers: controllers)
         tabBarController.selectedIndex = 0
