@@ -36,8 +36,6 @@ class MacroInputViewController: UIViewController {
     }
     
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-        ])
     }
     
 }
