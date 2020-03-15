@@ -33,5 +33,4 @@ class MacroDataViewController: UIViewController {
     func setupView() {}
     
     func setupConstraints() {}
-    
 }

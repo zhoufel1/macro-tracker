@@ -16,6 +16,7 @@ protocol ProfileViewControllerDelegate: AnyObject {
 class ProfileViewController: UIViewController {
     
     weak var delegate: ProfileViewControllerDelegate?
+    private let viewModel = ProfileViewModel()
     
     private let scrollView = UIScrollView()
     
@@ -42,9 +43,8 @@ class ProfileViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         title = "Profile"
-        let image = UIImage(named: "person.ios")
-        let selectedImage = UIImage(named: "person.ios")
-        tabBarItem = UITabBarItem(title: "Profile", image: image, selectedImage: selectedImage)
+        let icon = UIImage(named: "person.ios")
+        tabBarItem = UITabBarItem(title: "Profile", image: icon, selectedImage: icon)
     }
     
     required init?(coder: NSCoder) {
@@ -55,9 +55,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
-        let test = ProfileDatabaseHandler()
-        test?.updateData(key: "height", value: 180)
-        print(test!.retrieveProfileData()!.height)
     }
    
     func setupView() {
@@ -75,11 +72,10 @@ class ProfileViewController: UIViewController {
         
         resultsView.enableShadow()
         resultsView.backgroundColor = .white
-        resultsView.layer.shadowColor = UIColor.black.cgColor
         resultsView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(resultsView)
         
-        bmrValue.text = "\(DataCalculator.calculateBMR(sex: .male, mass: 59, height: 178, age: 21)) kCal"
+        bmrValue.text = viewModel.getBMRAsString()
         bmrValue.textColor = .black
         bmrValue.font = UIFont.systemFont(ofSize: 25)
         bmrValue.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +88,7 @@ class ProfileViewController: UIViewController {
         bmrIcon.translatesAutoresizingMaskIntoConstraints = false
         resultsView.addSubview(bmrIcon)
         
-        bmiValue.text = "\(DataCalculator.calculateBMI(mass: 59, height: 178))"
+        bmiValue.text = viewModel.getBMIAsString()
         bmiValue.font = UIFont.systemFont(ofSize: 25)
         resultsView.addSubview(bmiValue)
         
@@ -103,7 +99,7 @@ class ProfileViewController: UIViewController {
         bmiIcon.translatesAutoresizingMaskIntoConstraints = false
         resultsView.addSubview(bmiIcon)
         
-        waterValue.text = "\(DataCalculator.calculateWaterConsumption(mass: 60, activityLevel: .moderate)) mL"
+        waterValue.text = viewModel.getWaterRequirementAsString()
         waterValue.font = UIFont.systemFont(ofSize: 25)
         resultsView.addSubview(waterValue)
         
@@ -134,7 +130,6 @@ class ProfileViewController: UIViewController {
         bodyInfoTable.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(bodyInfoTable)
     }
-
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -187,10 +182,9 @@ class ProfileViewController: UIViewController {
             bodyInfoTable.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             bodyInfoTable.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             bodyInfoTable.topAnchor.constraint(equalTo: bodyInfoLabel.bottomAnchor, constant: 10),
-            bodyInfoTable.heightAnchor.constraint(equalToConstant: 299),
+            bodyInfoTable.heightAnchor.constraint(equalToConstant: 299)
         ])
     }
-    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -200,16 +194,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProfileTableViewCell
+        let cellTypes = viewModel.cellTypes
+        let profileData = viewModel.dataAsString
         cell.backgroundColor = .clear
         cell.textLabel?.textColor = .black
-//        cell.textLabel?.text = data[indexPath.row]
-        cell.titleLabel.text = "TEST"
-        cell.infoLabel.text = "NEXT"
+        cell.titleLabel.text = cellTypes[indexPath.row].rawValue
+        cell.infoLabel.text = profileData[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         50
-        
     }
 }

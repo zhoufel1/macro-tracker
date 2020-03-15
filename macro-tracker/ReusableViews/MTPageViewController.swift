@@ -34,7 +34,6 @@ class MTPageViewController: UIPageViewController {
     
         setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
     }
-    
 }
 
 extension MTPageViewController: UIPageViewControllerDataSource {
@@ -53,8 +52,6 @@ extension MTPageViewController: UIPageViewControllerDataSource {
         }
         return nil
     }
-    
-    
 }
 
 extension MTPageViewController: UIPageViewControllerDelegate {}

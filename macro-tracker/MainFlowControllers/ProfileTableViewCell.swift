@@ -15,7 +15,6 @@ class ProfileTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         addSubview(titleLabel)
         addSubview(infoLabel)
         
@@ -30,5 +29,4 @@ class ProfileTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
 }

@@ -37,5 +37,4 @@ class MacroInputViewController: UIViewController {
     
     func setupConstraints() {
     }
-    
 }

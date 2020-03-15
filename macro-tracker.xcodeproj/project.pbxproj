@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		856B77DA241C4B0800741873 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B77D9241C4B0800741873 /* ProfileViewModel.swift */; };
+		85316210241DDCB000FDE41A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531620F241DDCB000FDE41A /* ProfileViewModel.swift */; };
+		856B77DA241C4B0800741873 /* ProfileDatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B77D9241C4B0800741873 /* ProfileDatabaseHandler.swift */; };
 		85816EFA2415DB67004E2AE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816EF92415DB67004E2AE3 /* AppDelegate.swift */; };
 		85816EFC2415DB67004E2AE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816EFB2415DB67004E2AE3 /* SceneDelegate.swift */; };
 		85816F042415DB67004E2AE3 /* macro_tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85816F022415DB67004E2AE3 /* macro_tracker.xcdatamodeld */; };
@@ -48,7 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		856B77D9241C4B0800741873 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		8531620F241DDCB000FDE41A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		856B77D9241C4B0800741873 /* ProfileDatabaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDatabaseHandler.swift; sourceTree = "<group>"; };
 		85816EF62415DB67004E2AE3 /* macro-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "macro-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85816EF92415DB67004E2AE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85816EFB2415DB67004E2AE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				85816F472417738F004E2AE3 /* ProfileViewController.swift */,
-				856B77D9241C4B0800741873 /* ProfileViewModel.swift */,
+				8531620F241DDCB000FDE41A /* ProfileViewModel.swift */,
 				858F5F91241B72D200661A62 /* ProfileTableViewCell.swift */,
 				85816F4B2417765A004E2AE3 /* MacroInputViewController.swift */,
 				858F5F292418654500661A62 /* MacroDataViewController.swift */,
@@ -201,6 +203,7 @@
 		858F5F81241AF77F00661A62 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				856B77D9241C4B0800741873 /* ProfileDatabaseHandler.swift */,
 				858F5F8B241B588300661A62 /* DataCalculator.swift */,
 				858F5F8D241B5A5200661A62 /* DataObjects.swift */,
 			);
@@ -319,6 +322,7 @@
 				858F5F90241B5FE500661A62 /* Double+Extensions.swift in Sources */,
 				858F5F8A241B53CE00661A62 /* UIView+Extensions.swift in Sources */,
 				85816EFA2415DB67004E2AE3 /* AppDelegate.swift in Sources */,
+				85316210241DDCB000FDE41A /* ProfileViewModel.swift in Sources */,
 				858F5F86241B52C700661A62 /* MTLabel.swift in Sources */,
 				858F5F362419E33A00661A62 /* Constants.swift in Sources */,
 				85816F1F2415F2A6004E2AE3 /* SecondPageViewController.swift in Sources */,
@@ -326,7 +330,7 @@
 				85816F122415DBE9004E2AE3 /* Coordinator.swift in Sources */,
 				85816F482417738F004E2AE3 /* ProfileViewController.swift in Sources */,
 				858F5F2624183BA700661A62 /* MTNavigationController.swift in Sources */,
-				856B77DA241C4B0800741873 /* ProfileViewModel.swift in Sources */,
+				856B77DA241C4B0800741873 /* ProfileDatabaseHandler.swift in Sources */,
 				85816EFC2415DB67004E2AE3 /* SceneDelegate.swift in Sources */,
 				85816F2824162F1C004E2AE3 /* WelcomeCoordinator.swift in Sources */,
 				85816F1D2415EDCF004E2AE3 /* FirstPageViewController.swift in Sources */,

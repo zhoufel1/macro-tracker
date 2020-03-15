@@ -29,5 +29,4 @@ class SettingsViewController: UIViewController {
     func setupView() {}
     
     func setupConstraints() {}
-    
 }

@@ -2,63 +2,62 @@
 //  ProfileViewModel.swift
 //  macro-tracker
 //
-//  Created by Felix on 2020-03-13.
+//  Created by Felix on 2020-03-14.
 //  Copyright © 2020 Felix. All rights reserved.
 //
 
-import CoreData
 import Foundation
-import UIKit
 
-struct ProfileDatabaseHandler {
+class ProfileViewModel {
+    let cellTypes: [ProfileCell] = [
+        .height,
+        .weight,
+        .age,
+        .sex,
+        .goal,
+        .activity
+    ]
     
-    let managedContext: NSManagedObjectContext
-    
-    init?() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
-        managedContext = appDelegate.persistentContainer.viewContext
+    var profileData: (height: Double, weight: Double, age: Int, sex: Sex, goal: Goal, activity: ActivityLevel) {
+        let fetchedDataObject = ProfileDatabaseHandler()!.retrieveProfileData()!
+        return (
+            fetchedDataObject.height,
+            fetchedDataObject.weight,
+            Int(fetchedDataObject.age),
+            Sex(rawValue: Int(fetchedDataObject.sex))!,
+            Goal(rawValue: Int(fetchedDataObject.goal))!,
+            ActivityLevel(rawValue: Int(fetchedDataObject.activityLevel))!
+        )
+    }
+    var dataAsString: [String] {
+        [
+            String(profileData.height),
+            String(profileData.weight),
+            String(profileData.age),
+            String(describing: profileData.sex),
+            String(describing: profileData.goal),
+            String(describing: profileData.activity)
+        ]
     }
     
-    func createProfile(height: Double, weight: Double, sex: Sex, age: Int, goal: Goal, activityLevel: ActivityLevel) {
-        let profileEntity = NSEntityDescription.entity(forEntityName: "ProfileInfo", in: managedContext)!
-        let profileInfo = NSManagedObject(entity: profileEntity, insertInto: managedContext)
-        
-        profileInfo.setValuesForKeys([
-            "height": height,
-            "weight": weight,
-            "sex": sex.rawValue,
-            "age": age,
-            "goal": goal.rawValue,
-            "activityLevel": activityLevel.rawValue])
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error)")
-        }
+    func getBMRAsString() -> String {
+        return "\(DataCalculator.calculateBMR(sex: profileData.sex, mass: profileData.weight, height: profileData.height, age: profileData.age)) kCal"
     }
     
-    func retrieveProfileData() -> ProfileInfo? {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfileInfo")
-        
-        do {
-            return try managedContext.fetch(fetchRequest)[0] as? ProfileInfo
-        } catch let error as NSError {
-            print("Could not retrieve data. \(error)")
-        }
-        return nil
+    func getBMIAsString() -> String {
+        return "\(DataCalculator.calculateBMI(mass: profileData.weight, height: profileData.height))"
     }
     
-    func updateData(key: String, value: Any) {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfileInfo")
-        
-        do {
-            let profileObject = try managedContext.fetch(fetchRequest)[0] as! NSManagedObject
-            profileObject.setValue(value, forKey: key)
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not Update Data. \(error)")
-        }
+    func getWaterRequirementAsString() -> String {
+        return "\(DataCalculator.calculateWaterConsumption(mass: profileData.weight, activityLevel: profileData.activity))"
+    }
+}
 
-    }
+enum ProfileCell: String {
+    case height = "Height (cm)"
+    case weight = "Weight (kg)"
+    case age = "Age"
+    case sex = "Sex"
+    case goal = "Goal"
+    case activity = "Activity"
 }
