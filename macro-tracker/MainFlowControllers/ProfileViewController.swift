@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol ProfileViewControllerDelegate: AnyObject {
     
@@ -37,8 +38,6 @@ class ProfileViewController: UIViewController {
     
     private let resultsView = UIView()
     private let bodyInfoTable = UITableView()
- 
-    private let data = ["Height", "Weight", "Gender", "Age", "Activity Level", "Goal"] //TEMP
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -56,6 +55,9 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+        let test = ProfileDatabaseHandler()
+        test?.updateData(key: "height", value: 180)
+        print(test!.retrieveProfileData()!.height)
     }
    
     func setupView() {
@@ -67,7 +69,7 @@ class ProfileViewController: UIViewController {
         view.addSubview(scrollView)
         
         resultsLabel.text = "Calculated Results"
-        resultsLabel.font = UIFont.systemFont(ofSize: 20)
+        resultsLabel.font = UIFont.systemFont(ofSize: 25)
         resultsLabel.textAlignment = .center
         scrollView.addSubview(resultsLabel)
         
@@ -77,7 +79,7 @@ class ProfileViewController: UIViewController {
         resultsView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(resultsView)
         
-        bmrValue.text = "2000 kCal"
+        bmrValue.text = "\(DataCalculator.calculateBMR(sex: .male, mass: 59, height: 178, age: 21)) kCal"
         bmrValue.textColor = .black
         bmrValue.font = UIFont.systemFont(ofSize: 25)
         bmrValue.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +92,7 @@ class ProfileViewController: UIViewController {
         bmrIcon.translatesAutoresizingMaskIntoConstraints = false
         resultsView.addSubview(bmrIcon)
         
-        bmiValue.text = "21.4"
+        bmiValue.text = "\(DataCalculator.calculateBMI(mass: 59, height: 178))"
         bmiValue.font = UIFont.systemFont(ofSize: 25)
         resultsView.addSubview(bmiValue)
         
@@ -101,7 +103,7 @@ class ProfileViewController: UIViewController {
         bmiIcon.translatesAutoresizingMaskIntoConstraints = false
         resultsView.addSubview(bmiIcon)
         
-        waterValue.text = "5.04"
+        waterValue.text = "\(DataCalculator.calculateWaterConsumption(mass: 60, activityLevel: .moderate)) mL"
         waterValue.font = UIFont.systemFont(ofSize: 25)
         resultsView.addSubview(waterValue)
         
@@ -128,10 +130,11 @@ class ProfileViewController: UIViewController {
         bodyInfoTable.backgroundColor = .white
         bodyInfoTable.isScrollEnabled = false
         bodyInfoTable.allowsSelection = false
-        bodyInfoTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        bodyInfoTable.register(ProfileTableViewCell.self, forCellReuseIdentifier: "cell")
         bodyInfoTable.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(bodyInfoTable)
     }
+
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -184,7 +187,7 @@ class ProfileViewController: UIViewController {
             bodyInfoTable.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             bodyInfoTable.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             bodyInfoTable.topAnchor.constraint(equalTo: bodyInfoLabel.bottomAnchor, constant: 10),
-            bodyInfoTable.heightAnchor.constraint(equalToConstant: 300),
+            bodyInfoTable.heightAnchor.constraint(equalToConstant: 299),
         ])
     }
     
@@ -196,10 +199,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProfileTableViewCell
         cell.backgroundColor = .clear
         cell.textLabel?.textColor = .black
-        cell.textLabel?.text = data[indexPath.row]
+//        cell.textLabel?.text = data[indexPath.row]
+        cell.titleLabel.text = "TEST"
+        cell.infoLabel.text = "NEXT"
         return cell
     }
     
