@@ -18,6 +18,7 @@ class MainCoordinator: Coordinator {
     private var macroInputViewController: MacroInputViewController?
     private var macroDataViewController: MacroDataViewController?
     private var settingsViewController: SettingsViewController?
+    private var profileEditViewController: ProfileEditViewController?
     
     private var profileNavigationController: MTNavigationController?
     private var macroInputNavigationController: MTNavigationController?
@@ -59,9 +60,20 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(tabBarController, animated: false)
     }
     
+    func showProfileEditor() {
+        let profileEditViewController = ProfileEditViewController()
+        self.profileEditViewController = profileEditViewController
+        let profileEditNavigationController = MTNavigationController(rootViewController: profileEditViewController)
+
+        navigationController.present(profileEditNavigationController, animated: true, completion: nil)
+    }
 }
 
-extension MainCoordinator: ProfileViewControllerDelegate {}
+extension MainCoordinator: ProfileViewControllerDelegate {
+    func showProfileEdit() {
+        showProfileEditor()
+    }
+}
 
 extension MainCoordinator: MacroInputViewControllerDelegate {}
 

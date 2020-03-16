@@ -49,7 +49,7 @@ class ProfileViewModel {
     }
     
     func getWaterRequirementAsString() -> String {
-        return "\(DataCalculator.calculateWaterConsumption(mass: profileData.weight, activityLevel: profileData.activity))"
+        return "\(DataCalculator.calculateWaterConsumption(mass: profileData.weight, activityLevel: profileData.activity)) mL"
     }
 }
 

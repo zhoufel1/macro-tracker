@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		85316210241DDCB000FDE41A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531620F241DDCB000FDE41A /* ProfileViewModel.swift */; };
+		856B56E7241EDDD300B43B89 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B56E6241EDDD300B43B89 /* ProfileEditViewController.swift */; };
+		856B56E9241EEFC600B43B89 /* ContainerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B56E8241EEFC600B43B89 /* ContainerCardView.swift */; };
 		856B77DA241C4B0800741873 /* ProfileDatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B77D9241C4B0800741873 /* ProfileDatabaseHandler.swift */; };
 		85816EFA2415DB67004E2AE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816EF92415DB67004E2AE3 /* AppDelegate.swift */; };
 		85816EFC2415DB67004E2AE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85816EFB2415DB67004E2AE3 /* SceneDelegate.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		8531620F241DDCB000FDE41A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		856B56E6241EDDD300B43B89 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		856B56E8241EEFC600B43B89 /* ContainerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerCardView.swift; sourceTree = "<group>"; };
 		856B77D9241C4B0800741873 /* ProfileDatabaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDatabaseHandler.swift; sourceTree = "<group>"; };
 		85816EF62415DB67004E2AE3 /* macro-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "macro-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85816EF92415DB67004E2AE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				85816F4924177548004E2AE3 /* MTTabBarViewController.swift */,
 				858F5F2524183BA700661A62 /* MTNavigationController.swift */,
 				858F5F85241B52C700661A62 /* MTLabel.swift */,
+				856B56E8241EEFC600B43B89 /* ContainerCardView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				85816F472417738F004E2AE3 /* ProfileViewController.swift */,
 				8531620F241DDCB000FDE41A /* ProfileViewModel.swift */,
 				858F5F91241B72D200661A62 /* ProfileTableViewCell.swift */,
+				856B56E6241EDDD300B43B89 /* ProfileEditViewController.swift */,
 				85816F4B2417765A004E2AE3 /* MacroInputViewController.swift */,
 				858F5F292418654500661A62 /* MacroDataViewController.swift */,
 				858F5F2B2418660600661A62 /* SettingsViewController.swift */,
@@ -321,6 +327,7 @@
 			files = (
 				858F5F90241B5FE500661A62 /* Double+Extensions.swift in Sources */,
 				858F5F8A241B53CE00661A62 /* UIView+Extensions.swift in Sources */,
+				856B56E7241EDDD300B43B89 /* ProfileEditViewController.swift in Sources */,
 				85816EFA2415DB67004E2AE3 /* AppDelegate.swift in Sources */,
 				85316210241DDCB000FDE41A /* ProfileViewModel.swift in Sources */,
 				858F5F86241B52C700661A62 /* MTLabel.swift in Sources */,
@@ -346,6 +353,7 @@
 				85816F25241605D4004E2AE3 /* ThirdPageViewController.swift in Sources */,
 				858F5F92241B72D200661A62 /* ProfileTableViewCell.swift in Sources */,
 				858F5F2C2418660600661A62 /* SettingsViewController.swift in Sources */,
+				856B56E9241EEFC600B43B89 /* ContainerCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 protocol ProfileViewControllerDelegate: AnyObject {
-    
+    func showProfileEdit()
 }
 
 class ProfileViewController: UIViewController {
@@ -37,7 +37,8 @@ class ProfileViewController: UIViewController {
     private let waterValue = MTLabel()
     private let waterLabel = MTLabel()
     
-    private let resultsView = UIView()
+    private let resultsView = ContainerCardView()
+    private let bodyInfoTableContainer = ContainerCardView()
     private let bodyInfoTable = UITableView()
     
     init() {
@@ -70,8 +71,6 @@ class ProfileViewController: UIViewController {
         resultsLabel.textAlignment = .center
         scrollView.addSubview(resultsLabel)
         
-        resultsView.enableShadow()
-        resultsView.backgroundColor = .white
         resultsView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(resultsView)
         
@@ -115,12 +114,16 @@ class ProfileViewController: UIViewController {
         bodyInfoLabel.textAlignment = .center
         scrollView.addSubview(bodyInfoLabel)
         
-        //TODO: Add action to edit table
+        editTableAction.addTarget(self, action: #selector(showEditAction), for: .touchUpInside)
         editTableAction.setImage(UIImage(named: "edit"), for: .normal)
         editTableAction.tintColor = .black
         editTableAction.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(editTableAction)
 
+        bodyInfoTableContainer.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(bodyInfoTableContainer)
+        
+        bodyInfoTable.enableRoundedCorners()
         bodyInfoTable.delegate = self
         bodyInfoTable.dataSource = self
         bodyInfoTable.backgroundColor = .white
@@ -128,12 +131,12 @@ class ProfileViewController: UIViewController {
         bodyInfoTable.allowsSelection = false
         bodyInfoTable.register(ProfileTableViewCell.self, forCellReuseIdentifier: "cell")
         bodyInfoTable.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(bodyInfoTable)
+        bodyInfoTableContainer.addSubview(bodyInfoTable)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
+            scrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
@@ -142,7 +145,7 @@ class ProfileViewController: UIViewController {
             resultsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constants.profileSidePadding),
             
             resultsView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            resultsView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.95),
+            resultsView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.96),
             resultsView.heightAnchor.constraint(equalToConstant: 230),
             resultsView.topAnchor.constraint(equalTo: resultsLabel.bottomAnchor, constant: 10),
            
@@ -176,14 +179,21 @@ class ProfileViewController: UIViewController {
             bodyInfoLabel.topAnchor.constraint(equalTo: resultsView.bottomAnchor, constant: 30),
             bodyInfoLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constants.profileSidePadding),
             
-            editTableAction.topAnchor.constraint(equalTo: resultsView.bottomAnchor, constant: 30),
-            editTableAction.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constants.profileSidePadding),
-
-            bodyInfoTable.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            bodyInfoTable.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            bodyInfoTable.topAnchor.constraint(equalTo: bodyInfoLabel.bottomAnchor, constant: 10),
-            bodyInfoTable.heightAnchor.constraint(equalToConstant: 299)
+            editTableAction.topAnchor.constraint(equalTo: resultsView.bottomAnchor, constant: 35),
+            editTableAction.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constants.profileSidePadding - 5),
+            
+            bodyInfoTableContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.96),
+            bodyInfoTableContainer.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            bodyInfoTableContainer.topAnchor.constraint(equalTo: bodyInfoLabel.bottomAnchor, constant: 10),
+            bodyInfoTableContainer.heightAnchor.constraint(equalToConstant: 299),
+            
+            bodyInfoTable.widthAnchor.constraint(equalTo: bodyInfoTableContainer.widthAnchor),
+            bodyInfoTable.heightAnchor.constraint(equalTo: bodyInfoTableContainer.heightAnchor)
         ])
+    }
+    
+    @objc func showEditAction() {
+        delegate?.showProfileEdit()
     }
 }
 

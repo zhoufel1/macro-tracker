@@ -23,5 +23,6 @@ class MTTabBarViewController: UITabBarController {
         super.viewDidLoad()
         tabBar.barTintColor = Constants.secondaryColor
         tabBar.tintColor = .red
+        tabBar.unselectedItemTintColor = .white
     }
 }
